@@ -6,7 +6,7 @@ import Peer from 'simple-peer';
 const SocketContext = createContext()
 
 //
-const socket = io('http://localhost:5000')
+const socket = io('https://video-chatapp-zsm.herokuapp.com/')
 
 //
 const SocketContextProvider = ({ children }) => {
@@ -21,6 +21,8 @@ const SocketContextProvider = ({ children }) => {
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
+    const myVideoCanvas = useRef()
+    const userVideoCanvas = useRef()
 
     //
     useEffect(() => {
@@ -95,7 +97,7 @@ const SocketContextProvider = ({ children }) => {
 
     return (
         <SocketContext.Provider value={{
-            call, stream, me, callAccepted, callEnded, name, setName, myVideo, userVideo, callUser, answerCall, leaveCall
+            call, stream, me, callAccepted, callEnded, name, setName, myVideo, userVideo, callUser, answerCall, leaveCall,myVideoCanvas ,userVideoCanvas
         }}>
             {children}
         </SocketContext.Provider>
